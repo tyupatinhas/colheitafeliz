@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colheita Feliz Prototype</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Phaser para gerenciar o grid da fazenda -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.86.0/dist/phaser.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Barra superior com informações do fazendeiro e recursos -->
+    <div id="top-bar">
+      <div id="player-info">
+        <img src="avatar.png" alt="Avatar" class="avatar-img">
+        <div class="level-xp">
+          <div id="level">Nv. 1</div>
+          <!-- Barra de experiência foi substituída por texto -->
+          <div id="xp-text" class="xp-text">0/20</div>
+        </div>
+      </div>
+      <div id="currency-info">
+        <div class="currency" id="coins-container">
+          <i class="fas fa-coins" aria-hidden="true"></i>
+          <span id="coins-display">0</span>
+        </div>
+        <div class="currency" id="usd-container">
+          <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+          <span id="usd-display">0</span>
+        </div>
+        <div class="currency" id="seeds-container">
+          <i class="fas fa-seedling" aria-hidden="true"></i>
+          <span id="seeds-display">0</span>
+        </div>
+      </div>
+    </div>
+    <!-- Conteúdo principal: barra lateral + telas -->
+    <div id="main-content">
+      <div id="side-bar">
+        <button data-screen="farm" class="side-btn" id="farm-btn" title="Minha Fazenda"><i class="fas fa-home" aria-hidden="true"></i></button>
+        <button data-screen="shop" class="side-btn" id="shop-btn" title="Loja"><i class="fas fa-store" aria-hidden="true"></i></button>
+      </div>
+      <div id="screen-container">
+        <div id="farm-screen" class="screen">
+          <!-- Área de animais e casinha de cachorro sobrepostos -->
+          <div id="animal-pen">
+            🐄
+            🐔
+          </div>
+          <div id="dog-house">
+            🐶
+          </div>
+        </div>
+        <div id="shop-screen" class="screen hidden">
+          <h2>Loja</h2>
+          <div class="shop-card">
+            <div class="shop-image">
+              <i class="fas fa-seedling fa-3x"></i>
+            </div>
+            <div class="shop-details">
+              <h3>Semente de Planta</h3>
+              <p>Preço de compra: <strong>1</strong> moeda</p>
+              <p>Unidades colhidas: <strong>1–3</strong></p>
+              <p>Venda por unidade: <strong>2</strong> moedas</p>
+              <p>Experiência ao colher: <strong>3</strong> XP</p>
+              <button id="buy-seed-btn" class="buy-btn">Comprar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Barra inferior com ações -->
+    <div id="bottom-bar">
+      <button id="action-plant" class="action-btn plant-btn active" title="Plantar"><i class="fas fa-seedling" aria-hidden="true"></i></button>
+      <button id="action-water" class="action-btn water-btn" title="Regar"><i class="fas fa-tint" aria-hidden="true"></i></button>
+      <button id="action-remove" class="action-btn remove-btn" title="Remover praga"><i class="fas fa-bug" aria-hidden="true"></i></button>
+      <button id="action-harvest" class="action-btn harvest-btn" title="Colher"><i class="fas fa-shopping-basket" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
